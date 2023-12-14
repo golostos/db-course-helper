@@ -67,3 +67,24 @@ SELECT *, LEAD(salary) OVER(PARTITION BY departmentId ORDER BY salary) AS nextSa
 SELECT *, salary - LAG(salary) OVER(PARTITION BY departmentId ORDER BY salary) AS diffSalary FROM employee;
 
 SELECT *, salary - LEAD(salary) OVER(PARTITION BY departmentId ORDER BY salary) AS diffSalary FROM employee;
+
+
+-- SELECT *,
+-- FIRST_VALUE(ProductName) OVER(PARTITION BY CategoryID ORDER BY Price DESC) AS max
+-- FROM `Products`
+
+SELECT *,
+AVG(price) OVER(PARTITION BY CategoryID ORDER BY `Price` DESC RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS avg
+FROM `Products`;
+
+SELECT *,
+AVG(price) OVER(PARTITION BY CategoryID) AS avg
+FROM `Products`;
+
+SELECT *,
+AVG(price) OVER(PARTITION BY CategoryID ORDER BY `Price` DESC ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS avg
+FROM `Products`;
+
+SELECT *,
+AVG(price) OVER(PARTITION BY CategoryID ORDER BY `Price` DESC) AS avg
+FROM `Products`;

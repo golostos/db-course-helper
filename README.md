@@ -29,3 +29,7 @@ Copy the content from the link bellow to the SQL tab in phpMyAdmin and execute i
 ## Start exercises from w3schools
 
 [https://www.w3schools.com/sql/default.asp](https://www.w3schools.com/sql/default.asp)
+
+## Window functions
+
+[https://learnsql.com/blog/sql-window-functions-cheat-sheet/](https://learnsql.com/blog/sql-window-functions-cheat-sheet/)
