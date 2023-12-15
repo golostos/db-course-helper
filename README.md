@@ -230,7 +230,7 @@ SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 -- First transaction
 START TRANSACTION;
 SELECT * FROM counter;
-SELECT value FROM counter into @value;
+SELECT value FROM counter into @value FOR UPDATE;
 UPDATE counter SET value = @value + 1;
 SELECT * FROM counter;
   -- Second transaction

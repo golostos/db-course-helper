@@ -16,7 +16,7 @@ SELECT request_at AS 'Day', ROUND(R.total_canceled / R.total, 2) AS 'Cancellatio
         COUNT(*) OVER(PARTITION BY T.request_at) AS total,
         SUM(T.canceled) OVER(PARTITION BY T.request_at) AS total_canceled,
         ROW_NUMBER() OVER(PARTITION BY T.request_at) AS num
-    	-- COUNT(CASE WHEN status IN ('cancelled_by_driver','cancelled_by_client') THEN 1 ELSE 0 END) OVER(PARTITION BY request_at) TotalCancelRequest
+    	-- COUNT(CASE WHEN status IN ('cancelled_by_driver','cancelled_by_client') THEN 1 ELSE NULL END) OVER(PARTITION BY request_at) TotalCancelRequest
     FROM T
 ) AS R
 WHERE R.num = 1 AND R.request_at BETWEEN '2013-10-01' AND '2013-10-03'
