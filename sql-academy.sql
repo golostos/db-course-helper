@@ -56,10 +56,10 @@ JOIN Users ON Users.id = Rooms.owner_id
 GROUP BY owner_id;
 
 -- 71
-SELECT ROUND((
-        SELECT COUNT(*) FROM (
-            SELECT DISTINCT owner_id FROM Rooms 
-            JOIN Reservations ON Rooms.id = Reservations.room_id 
-            UNION SELECT DISTINCT user_id FROM Reservations
-        ) AS active_users
-    )*100/(SELECT COUNT(id) FROM Users), 2) AS percent;
+WITH OwnersClients AS (
+    SELECT DISTINCT owner_id FROM Rooms
+    JOIN Reservations ON Reservations.room_id = Rooms.id
+    UNION 
+    SELECT DISTINCT user_id FROM Reservations
+)
+SELECT ROUND((SELECT COUNT(*) FROM OwnersClients) * 100 / (SELECT COUNT(id) FROM Users), 2) AS percent;
