@@ -1,3 +1,13 @@
+-- Leetcode 185. Department Top Three Salaries
+
+-- Sliding window
+SELECT d.name as Department, e.name AS Employee, e.salary AS Salary
+FROM (
+    SELECT *, DENSE_RANK() OVER(PARTITION BY departmentId ORDER BY salary DESC) AS rnk FROM employee 
+) e 
+JOIN department d ON d.id = e.departmentId
+WHERE e.rnk < 4
+
 -- 262. Trips and Users
 
 WITH T AS (

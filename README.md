@@ -26,6 +26,10 @@ Copy the content from the link bellow to the SQL tab in phpMyAdmin and execute i
 
 [https://en.wikiversity.org/wiki/Database_Examples/Northwind/MySQL](https://en.wikiversity.org/wiki/Database_Examples/Northwind/MySQL)
 
+## Northwind database diagram
+
+![Northwind database diagram](/northwind-schema.png)
+
 ## Start exercises from w3schools
 
 [https://www.w3schools.com/sql/default.asp](https://www.w3schools.com/sql/default.asp)
@@ -92,6 +96,36 @@ Copy the content from the link bellow to the SQL tab in phpMyAdmin and execute i
 * LEFT JOIN - returns all records from the left table and the matched records from the right table
 * RIGHT JOIN - returns all records from the right table and the matched records from the left table
 * FULL JOIN - returns all records when there is a match in either left or right table
+
+## Window functions
+
+* ROW_NUMBER - assigns a unique number to each row
+* RANK - assigns a unique number to each row, but the same number to rows with equal values
+* DENSE_RANK - assigns a unique number to each row, but the same number to rows with equal values. The numbers are consecutive
+* NTILE - assigns a unique number to each row, but the same number to rows with equal values. The numbers are consecutive. The number of rows in each group is the same
+* LAG - returns the value of the previous row
+* LEAD - returns the value of the next row
+* FIRST_VALUE - returns the value of the first row in the group
+* LAST_VALUE - returns the value of the last row in the group
+* PERCENT_RANK - returns the relative rank of each row
+* CUME_DIST - returns the cumulative distribution of a value within a group of values
+* PERCENTILE_CONT - returns a value interpolated between the values of the specified cumulative distribution
+* PERCENTILE_DISC - returns a value evaluated at a specified percentile in a sorted set of values
+
+## Logical Order of Operations in SQL
+
+1. FROM, JOIN
+2. WHERE
+3. GROUP BY
+4. aggregate functions
+5. HAVING
+6. window functions
+7. SELECT
+8. DISTINCT
+9. UNION/INTERSECT/EXCEPT
+10. ORDER BY
+11. OFFSET
+12. LIMIT/FETCH/TOP
 
 ## Transactions
 
@@ -253,3 +287,7 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE condition;
 ```
+
+## TOP 10 SQL queries for interview
+
+[https://techtfq.com/blog/top-10-sql-interview-queries-popular-sql-queries-for-sql-interview/](https://techtfq.com/blog/top-10-sql-interview-queries-popular-sql-queries-for-sql-interview/)
